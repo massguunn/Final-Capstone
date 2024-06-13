@@ -7,7 +7,7 @@ const kota = {
     <div class="card-container">
         <div class="card">
         <div class="image">
-        <img src="./lombok/desa-sade-2.jpeg" alt="Jambi">
+        <img src="./Lombok/desa-sade-2.jpeg" alt="Jambi">
         </div>
             <div class="card-content">
                 <h2>Jambi</h2>

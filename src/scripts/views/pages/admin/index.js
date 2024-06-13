@@ -2,16 +2,12 @@ const admin = {
   async render() {
     return `
         <main>
-          <div class="main-content">
+          <div class="main-content-admin">
               <aside>
                   <ul>
                       <li>home</li>
-                      <span></span>
-                      <li>user</li>
-                      <li><a href="event.html">Event</a></li>
-                      <li>destination</li>
-                      <li>Tri Kota</li>
-                      <li><a href="kuliner.html">Kuliner</a></li>
+                      <li><a href="/#/event_admin">Event</a></li>
+                      <li><a href="/#/kuliner_admin">Kuliner</a></li>
                   </ul>
               </aside>
   
@@ -31,10 +27,16 @@ const admin = {
                               <label for="location">Location</label>
                               <input type="text" id="location" name="location" required>
                           </div>
-                          <div class="form-group">
-                              <label for="city">City</label>
-                              <input type="text" id="city" name="city" required>
-                          </div>
+                         <div class="form-group">
+                             <label for="city">City</label>
+                             <select id="city" name="city" required>
+                                <option value="">Pilih Kota</option>
+                                <option value="Lombok">Lombok</option>
+                                <option value="Banyumas">Banyumas</option>
+                                <option value="Jambi">Jambi</option>
+                            </select>
+                        </div>
+
                           <div class="form-group">
                               <label for="rating">Rating</label>
                               <input type="number" id="rating" name="rating" step="0.01" required>
