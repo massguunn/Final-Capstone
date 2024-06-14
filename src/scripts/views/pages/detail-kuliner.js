@@ -33,6 +33,9 @@ const kuliner = {
     <div class="location">
         <h2>Lokasi</h2>
         <img src="https://via.placeholder.com/600x300" alt="Location Map">
+        <br>
+        <br>
+        <iframe src="${kuliner.location}" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
     <div class="section other-destinations">
