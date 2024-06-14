@@ -20,7 +20,7 @@ const banyumas = {
       );
 
       return `
-          <h1 class="kota">Lombok</h1>
+          <h1 class="kota">Banyumas</h1>
           <p>Temukan Destinasi Impian Anda</p>
   
           <h2 class="title">Wisata</h2>
@@ -60,7 +60,7 @@ const banyumas = {
                      alt="${kuliner.name}" />
                   </a>
                   <h3>${kuliner.name}</h3>
-                  <p>${kuliner.description}</p>
+                 <p tabindex="0">${kuliner.description.slice(0, 150)}...</p>
                   <div class="rating">Rating: ${kuliner.rating}</div>
                 </div>
               `
@@ -81,7 +81,7 @@ const banyumas = {
                      alt="${event.title}" />
                   </a>
                   <h3>${event.title}</h3>
-                  <p>${event.description}</p>
+                  <p tabindex="0">${event.description.slice(0, 150)}...</p>
                   <div class="price">RP. ${event.price}</div>
                 </div>
               `

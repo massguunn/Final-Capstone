@@ -57,7 +57,7 @@ const lombok = {
                    alt="${kuliner.name}" />
                 </a>
                 <h3>${kuliner.name}</h3>
-                <p>${kuliner.description}</p>
+                <p tabindex="0">${kuliner.description.slice(0, 150)}...</p>
                 <div class="rating">Rating: ${kuliner.rating}</div>
               </div>
             `
@@ -78,7 +78,7 @@ const lombok = {
                    alt="${event.title}" />
                 </a>
                 <h3>${event.title}</h3>
-                <p>${event.description}</p>
+                <p tabindex="0">${event.description.slice(0, 150)}...</p>
                 <div class="price">RP. ${event.price}</div>
               </div>
             `
