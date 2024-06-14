@@ -7,18 +7,11 @@ const event = {
     return `
              <div class="content" id="content">
     <div class="section main-image-section">
+    <h2>Laut-lautan</h2>
         <img src="${event.image}" alt="Main Image" class="main-image">
     </div>
 
     <div class="section">
-        <h2>Laut-lautan</h2>
-        <div class="thumbnail-gallery">
-            <img src="https://via.placeholder.com/100" alt="Thumbnail 1">
-            <img src="https://via.placeholder.com/100" alt="Thumbnail 2">
-            <img src="https://via.placeholder.com/100" alt="Thumbnail 3">
-            <img src="https://via.placeholder.com/100" alt="Thumbnail 3">
-            <img src="https://via.placeholder.com/100" alt="Thumbnail 3">
-        </div>
         <div class="price-button">
             <span class="price">Rp.${event.price},-</span>
             <a href="#" class="button">Buy Ticket</a>
@@ -32,9 +25,6 @@ const event = {
 
     <div class="location">
         <h2>Lokasi</h2>
-        <img src="https://via.placeholder.com/600x300" alt="Location Map">
-        <br>
-        <br>
         <iframe src="${event.location}" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 

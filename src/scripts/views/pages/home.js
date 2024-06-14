@@ -35,7 +35,7 @@ const home = {
                     <p>${event.title}</p>
                   </div>
                   <div class="event__description">
-                    <p>${event.location}</p>
+                    <p>${event.city}</p>
                   </div>
                   </a>
                 </div>

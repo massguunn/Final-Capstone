@@ -617,7 +617,7 @@ p {
 .main-image {
   width: 100%;
   border-radius: 10px;
-  height: 40vh;
+  height: 80vh;
   object-fit: cover;
 }
 
