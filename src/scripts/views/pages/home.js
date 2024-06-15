@@ -128,7 +128,7 @@ const home = {
         <div id="hero" class="hero">
           <div class="hero__title">
             <h1>Jelajah Keindahan Panorama Kota-Kota Pilihan dengan Trigunar.</h1>
-            <button class="cta-button">Daftar Kota</button>
+            <button class="cta-button"><a href="#/kota">Daftar Kota</a></button>
           </div>
         </div>
 
