@@ -1,10 +1,10 @@
 const event = {
-  async render() {
-    const id = window.location.hash.split("/")[2];
-    const response = await fetch(`http://localhost:3000/events/${id}`);
-    const event = await response.json();
+    async render() {
+        const id = window.location.hash.split("/")[2];
+        const response = await fetch(`http://localhost:3000/events/${id}`);
+        const event = await response.json();
 
-    return `
+        return `
              <div class="content" id="content">
     <div class="section main-image-section">
         <img src="${event.image}" alt="Main Image" class="main-image">
@@ -55,9 +55,9 @@ const event = {
     </div>
 </div>
 ;`;
-  },
+    },
 
-  async afterRender() {},
+    async afterRender() { },
 };
 
 export default event;

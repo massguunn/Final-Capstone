@@ -1,10 +1,10 @@
 const kuliner = {
-  async render() {
-    const id = window.location.hash.split("/")[2];
-    const response = await fetch(`http://localhost:3000/kuliners/${id}`);
-    const kuliner = await response.json();
+    async render() {
+        const id = window.location.hash.split("/")[2];
+        const response = await fetch(`http://localhost:3000/kuliners/${id}`);
+        const kuliner = await response.json();
 
-    return `
+        return `
            <div class="content" id="content">
     <div class="section main-image-section">
         <img src="${kuliner.image}" alt="Main Image" class="main-image">
@@ -55,9 +55,9 @@ const kuliner = {
     </div>
 </div>
           `;
-  },
+    },
 
-  async afterRender() {},
+    async afterRender() { },
 };
 
 export default kuliner;

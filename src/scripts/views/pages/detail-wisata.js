@@ -1,13 +1,13 @@
 const detail = {
-  async render() {
-    const id = window.location.hash.split("/")[2];
-    const response = await fetch(`http://localhost:3000/destinations/${id}`);
-    const destination = await response.json();
+    async render() {
+        const id = window.location.hash.split("/")[2];
+        const response = await fetch(`http://localhost:3000/destinations/${id}`);
+        const destination = await response.json();
 
-    return `
+        return `
          <div class="content" id="content">
     <div class="section main-image-section">
-        <img src="${destination.image_url}" alt="Main Image" class="main-image">
+        <img src="${destination.image}" alt="Main Image" class="main-image">
     </div>
 
     <div class="section">
@@ -55,9 +55,9 @@ const detail = {
     </div>
 </div>
       `;
-  },
+    },
 
-  async afterRender() {},
+    async afterRender() { },
 };
 
 export default detail;

@@ -108,16 +108,13 @@ const event_admin = {
                   <td>${pkg.price}</td>
                   <td>${pkg.start_date.split("T")[0]}</td>
                   <td>${pkg.end_date.split("T")[0]}</td>
-                  <td><img src="${pkg.image}" alt="${
-            pkg.image
-          }" width="100"></td>
+                  <td><img src="${pkg.image}" alt="${pkg.image
+            }" width="100"></td>
                   <td class="action">
-                      <button class="edit" onclick="editPackage(${
-                        pkg.id
-                      })">Edit</button>
-                      <button class="delete" onclick="deletePackage(${
-                        pkg.id
-                      })">Delete</button>
+                      <button class="edit" onclick="editPackage(${pkg.id
+            })">Edit</button>
+                      <button class="delete" onclick="deletePackage(${pkg.id
+            })">Delete</button>
                 </td>
             `;
           packageList.appendChild(row);
