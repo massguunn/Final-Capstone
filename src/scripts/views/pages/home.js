@@ -46,6 +46,52 @@ const home = {
         })
         .join("");
 
+      const now = new Date();
+      const promoEvent = events.find(
+        (event) =>
+          new Date(event.start_date) <= now && new Date(event.end_date) >= now
+      );
+
+      let promoSection = "";
+      if (promoEvent) {
+        const promoStartDate = new Date(
+          promoEvent.start_date
+        ).toLocaleDateString("id-ID", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        });
+        const promoEndDate = new Date(promoEvent.end_date).toLocaleDateString(
+          "id-ID",
+          {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          }
+        );
+
+        promoSection = `
+            <!-- Promo Section -->
+            <section id="promo" class="promo">
+              <div class="promo__content">
+                <div class="promo__text">
+                  <h2>Promo Event: ${promoEvent.title}</h2>
+                  <p class="promo__countdown">${promoStartDate} - ${promoEndDate}</p>
+                  <p>${promoEvent.description}</p>
+                </div>
+                <div class="promo__card">
+                  <img src="${promoEvent.image}" alt="${promoEvent.title}">
+                  <div class="promo__card-details">
+                    <h3>Lokasi</h3>
+                    <h4>${promoEvent.city}</h4>
+                    <p class="promo__card-price"><del>Rp.1.000.000,-</del> <span>Rp.300.000,-</span></p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          `;
+      }
+
       // Ambil data destinasi dari endpoint destinations
       const responseDestinations = await fetch(
         "http://localhost:3000/destinations"
@@ -107,25 +153,8 @@ const home = {
           </div>
         </section>
 
-        <!-- Promo Section -->
-        <section id="promo" class="promo">
-          <div class="promo__content">
-            <div class="promo__text">
-              <h2>Promo 50%</h2>
-              <p class="promo__countdown">3 <span>hari</span> : 12 <span>jam</span> : 47 <span>menit</span></p>
-              <p>Mojo Savanna merupakan lorem ipsum dolor sit amet consectetur. Feugiat bibendum varius nunc
-                tellus amet at laoreet. Nam tristique egestas quam praesent quis.</p>
-            </div>
-            <div class="promo__card">
-              <img src="./lombok/Desa-Sade-4.jpeg" alt="Mojo Savanna">
-              <div class="promo__card-details">
-                <h3>Destinasi</h3>
-                <h4>Desa Sade</h4>
-                <p class="promo__card-price"><del>Rp.1.000.000,-</del> <span>Rp.300.000,-</span></p>
-              </div>
-            </div>
-          </div>
-        </section>
+
+         ${promoSection}
       `;
     } catch (error) {
       console.error("Error fetching data:", error);
