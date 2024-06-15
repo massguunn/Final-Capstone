@@ -7,7 +7,7 @@ const detail = {
         return `
          <div class="content" id="content">
     <div class="section main-image-section">
-        <img src="${destination.image}" alt="Main Image" class="main-image">
+        <img src="${destination.image_url}" alt="Main Image" class="main-image">
     </div>
 
     <div class="section">

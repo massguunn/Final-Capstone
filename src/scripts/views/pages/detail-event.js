@@ -46,11 +46,7 @@ const event = {
                 <h3 class="card-title">Mojo Savanna</h3>
                 <span class="card-price">Rp. 30.000,-</span>
             </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/300x200" alt="Destination 2">
-                <h3 class="card-title">Rinaldi Beef Noodle</h3>
-                <span class="card-price">Rp. 30.000,-</span>
-            </div>
+          </div>
         </div>
     </div>
 </div>

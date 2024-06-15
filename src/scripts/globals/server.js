@@ -5,19 +5,10 @@ const path = require("path");
 const fs = require("fs");
 const sequelize = require("./db");
 const destinations = require("./models/destinasi");
-// booking.belongsTo(destinations, {
-//   foreignKey: "destination_id",
-//   as: "destination",
-// });
-
 const events = require("./models/event");
 const kuliners = require("./models/kuliner");
 
-// const booking = require("./models/booking");
-// destinations.hasMany(booking, {
-//   foreignKey: "destination_id",
-//   as: "bookings",
-// });
+const Contact = require("./models/contact");
 
 const init = async () => {
   const server = Hapi.server({
@@ -163,38 +154,6 @@ const init = async () => {
       }
     },
   });
-
-  // // Post booking
-  // server.route({
-  //   method: "POST",
-  //   path: "/bookings",
-  //   options: {
-  //     validate: {
-  //       payload: Joi.object({
-  //         destination_id: Joi.number().required(),
-  //         user_name: Joi.string().required(),
-  //         user_email: Joi.string().email().required(),
-  //       }),
-  //       failAction: (request, h, err) => {
-  //         return err;
-  //       },
-  //     },
-  //   },
-  //   handler: async (request, h) => {
-  //     const { destination_id, user_name, user_email } = request.payload;
-  //     try {
-  //       const newBooking = await bookings.create({
-  //         destination_id,
-  //         user_name,
-  //         user_email,
-  //       });
-  //       return h.response({ id: newBooking.id }).code(201);
-  //     } catch (error) {
-  //       console.error("Error creating booking:", error);
-  //       return h.response({ error: "Internal server error" }).code(500);
-  //     }
-  //   },
-  // });
 
   // PUT destinasi
   server.route({
@@ -769,6 +728,48 @@ const init = async () => {
       } catch (error) {
         console.error("Error deleting destination:", error);
         return h.response("Internal server error").code(500);
+      }
+    },
+  });
+
+  // ================================ + Contact Us + ===============================//
+  server.route({
+    method: "POST",
+    path: "/contact",
+    options: {
+      validate: {
+        payload: Joi.object({
+          name: Joi.string().required(),
+          email: Joi.string().email().required(),
+          message: Joi.string().required(),
+        }),
+        failAction: (request, h, err) => {
+          return err;
+        },
+      },
+    },
+    handler: async (request, h) => {
+      const { name, email, message } = request.payload;
+
+      try {
+        // Simpan data kontak ke database
+        await Contact.create({ name, email, message });
+
+        // Kirim respons balik ke klien
+        return h
+          .response({
+            message:
+              "Terima kasih sudah menghubungi kami. Kami akan segera menghubungi Anda kembali.",
+          })
+          .code(200);
+      } catch (error) {
+        console.error("Error saving contact:", error);
+        return h
+          .response({
+            error:
+              "Failed to save contact information. Please try again later.",
+          })
+          .code(500);
       }
     },
   });
