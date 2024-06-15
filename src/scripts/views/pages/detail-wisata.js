@@ -1,7 +1,7 @@
 const detail = {
   async render() {
     const id = window.location.hash.split("/")[2];
-    const response = await fetch(`http://localhost:3000/destinations/${id}`);
+    const response = await fetch(`aws-0-ap-southeast-1.pooler.supabase.com/destinations/${id}`);
     const destinasi = await response.json();
 
     // Ambil data destinasi dari endpoint destinations
@@ -66,7 +66,7 @@ const detail = {
       `;
   },
 
-  async afterRender() {},
+  async afterRender() { },
 };
 
 export default detail;
