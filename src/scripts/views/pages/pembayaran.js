@@ -12,7 +12,7 @@ const pembayaran = {
         <input type="number" placeholder="Masukan Nomer HP" required>
         <div class="buttons">
           <button type="submit" class="submit-btn">Bayar</button>
-          <a href="/#/detail-destination.html" class="cancel-btn">Cancel</a>
+          <a href="/#/home" class="cancel-btn">Cancel</a>
         </div>
       </form>
     </div>

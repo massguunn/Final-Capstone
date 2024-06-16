@@ -123,9 +123,11 @@ main {
 
 /* New Spot Section */
 .main-content__new-spot {
-  background: linear-gradient(180deg,
-      rgba(53, 173, 240, 0.17) 0%,
-      rgba(72, 156, 203, 0.17) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(53, 173, 240, 0.17) 0%,
+    rgba(72, 156, 203, 0.17) 100%
+  );
   padding: 10px;
   height: 100%;
 }
@@ -226,6 +228,7 @@ main {
   text-align: center;
   font-size: 1.5rem;
   margin: 20px auto;
+  text-decoration: none;
 }
 
 .event__item {
@@ -539,7 +542,7 @@ p {
   margin-top: 20px;
 }
 
-.login-google p {
+.login-google {
   margin: 10px 0;
   color: #f1f1f1;
 }
@@ -735,7 +738,7 @@ p {
 }
 
 .signup-container h1,
-p {
+.des {
   color: #f1f1f1;
 }
 

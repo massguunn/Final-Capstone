@@ -7,7 +7,7 @@ const tentangKita = {
     <section class="signup-image">
       <div class="signup-container">
         <h1>BOOKING</h1>
-         <p> Di atas input name itu nanti ada field id_booking-nya langsung muncul</p>
+         <p class="des"> Di atas input name itu nanti ada field id_booking-nya langsung muncul</p>
 
         <form action="" class="signup-container__signup-field">
         <input type="text" placeholder="Ini nanti muncul id_booking-nya" required disabled>
@@ -26,9 +26,9 @@ const tentangKita = {
   },
 
   async afterRender() {
-    const header = document.querySelector('.app-bar');
+    const header = document.querySelector(".app-bar");
     if (header) {
-      header.style.display = 'none';
+      header.style.display = "none";
     }
   },
 };

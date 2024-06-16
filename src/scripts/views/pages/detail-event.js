@@ -39,7 +39,7 @@ const event = {
           <div class="section">
             <div class="price-button">
               <span class="price">Rp. ${event.price},-</span>
-              <a href="#" class="button">Buy Ticket</a>
+              <a href="#/booking" class="button">Buy Ticket</a>
             </div>
           </div>
   
