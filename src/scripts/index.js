@@ -4,6 +4,7 @@ import "../style/responsive.css";
 import "../style/contact.css";
 import "../style/about.css";
 import "../style/our-team.css";
+import "../style/pembayaran.css";
 import App from "./views/app";
 
 const app = new App({
