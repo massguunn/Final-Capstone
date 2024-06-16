@@ -10,7 +10,7 @@ import lombok from "../views/pages/lombok";
 import banyumas from "../views/pages/banyumas";
 
 //untuk halaman signUp
-import signup from "../views/pages/signup";
+import booking from "../views/pages/booking";
 
 // untuk halaman detail
 import detail from "../views/pages/detail-wisata";
@@ -43,7 +43,7 @@ const routes = {
   "/detail/:id": detail,
   "/kuliner/:id": kuliner,
   "/event/:id": event,
-  "/signup": signup,
+  "/booking": booking,
   "/admin": admin,
   "/event_admin": event_admin,
   "/kuliner_admin": kuliner_admin,

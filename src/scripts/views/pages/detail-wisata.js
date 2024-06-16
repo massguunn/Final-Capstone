@@ -1,13 +1,11 @@
 const detail = {
   async render() {
     const id = window.location.hash.split("/")[2];
-    const response = await fetch(`aws-0-ap-southeast-1.pooler.supabase.com/destinations/${id}`);
-    const destinasi = await response.json();
+    const response = await fetch(`http://localhost:3000/destinations/${id}`);
+    const destination = await response.json();
 
-    // Ambil data destinasi dari endpoint destinations
-    const responseDestinations = await fetch(
-      "http://localhost:3000/destinations"
-    );
+    // Ambil data event dari endpoint events
+    const responseDestinations = await fetch("http://localhost:3000/destinations");
     const destinations = await responseDestinations.json();
 
     // Urutkan destinasi berdasarkan ID secara descending (dari yang terbesar ke terkecil)
@@ -34,26 +32,26 @@ const detail = {
     return `
         <div class="content" id="content">
           <div class="section main-image-section">
-            <h2>${destinasi.name}</h2>
+            <h2>${destination.name}</h2>
             <br>
-            <img src="${destinasi.image_url}" alt="Main Image" class="main-image">
+            <img src="${destination.image_url}" alt="Main Image" class="main-image">
           </div>
   
           <div class="section">
             <div class="price-button">
-              <span class="price">Rp. ${destinasi.price},-</span>
-              <a href="#" class="button">Buy Ticket</a>
+              <span class="price">Rp. ${destination.price},-</span>
+              <a href="#/booking" class="button">Buy Ticket</a>
             </div>
           </div>
   
           <div class="section description">
             <h2>Deskripsi</h2>
-            <p>${destinasi.description}</p>
+            <p>${destination.description}</p>
           </div>
   
           <div class="location">
             <h2>Lokasi</h2>
-            <iframe src="${destinasi.location}" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="${destination.location}" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
   
           <div class="section other-destinations">
