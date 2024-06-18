@@ -64,7 +64,7 @@ const kuliner = {
         `;
   },
 
-  async afterRender() {},
+  async afterRender() { },
 };
 
 export default kuliner;

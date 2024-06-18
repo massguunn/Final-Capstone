@@ -775,6 +775,58 @@ const init = async () => {
   });
   await server.start();
   console.log("Server running on %s", server.info.uri);
+
+  // ================================ + Bookings + ===============================//
+  // add bookings
+  server.route({
+    method: "POST",
+    path: "/bookings",
+    options: {
+      validate: {
+        payload: Joi.object({
+          id: Joi.number().required(),
+          user_name: Joi.string().required(),
+          user_email: Joi.string().email().required(),
+          No_hp: Joi.number().required(),
+          booking_date: Joi.date().required(),
+        }),
+        failAction: (request, h, err) => {
+          return err;
+        },
+      },
+    },
+    handler: async (request, h) => {
+      const { id, user_name, user_email, No_Hp, booking_date } = request.payload;
+
+      try {
+        const destiExists = await destinations.findByPk(id);
+        if (!destiExists) {
+          return h.response({ error: 'Place ID not valid' }).code(400);
+        }
+
+        // Simpan data kontak ke database
+        await booking.create({ id, user_name, user_email, No_Hp, booking_date });
+
+        // Kirim respons balik ke klien
+        return h
+          .response({
+            message:
+              "Terima kasih sudah melakukan booking, harap segera melakukan pembayaran.",
+          })
+          .code(200);
+      } catch (error) {
+        console.error("Error saving contact:", error);
+        return h
+          .response({
+            error:
+              "Failed to save contact information. Please try again later.",
+          })
+          .code(500);
+      }
+    },
+  });
+  await server.start();
+  console.log("Server running on %s", server.info.uri);
 };
 
 process.on("unhandledRejection", (err) => {
