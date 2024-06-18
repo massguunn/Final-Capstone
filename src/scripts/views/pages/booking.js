@@ -1,11 +1,21 @@
 const tentangKita = {
   async render() {
-    // Fetch data from other table, e.g., 'places'
-    const destination = await fetch("http://localhost:3000/destinations")
-      .then(response => response.json());
+    let destinations = [];
+    try {
+      const response = await fetch("http://localhost:3000/destinations");
+      destinations = await response.json();
 
-    // Create options for place selection
-    const destiOptions = destination.map(destination =>
+      // Cek apakah data yang diambil adalah array
+      if (!Array.isArray(destinations)) {
+        throw new Error("Data fetched is not an array");
+      }
+    } catch (error) {
+      console.error("Failed to fetch destinations:", error);
+      return `<p>Failed to load destinations. Please try again later.</p>`;
+    }
+
+    // Buat opsi untuk pilihan tempat
+    const destiOptions = destinations.map(destination =>
       `<option value="${destination.id}">${destination.name}</option>`
     ).join('');
 
@@ -14,7 +24,7 @@ const tentangKita = {
     <section class="signup-image">
       <div class="signup-container">
         <h1>BOOKING</h1>
-        <p> Di atas input name itu nanti ada field id_booking-nya langsung muncul</p>
+        <p>Di atas input name itu nanti ada field id_booking-nya langsung muncul</p>
 
         <form action="" id="form-booking" class="signup-container__signup-field">
           <select id="id" name="id" required>
@@ -29,7 +39,7 @@ const tentangKita = {
             <button type="button" class="signup-btn">Cancel</button>
           </div>
         </form>
-        <div id="form-response"></div>
+        <div id="form-response"  style="color:#f1f1f1;"></div>
       </div>
     </section>
     `;
@@ -42,15 +52,18 @@ const tentangKita = {
     }
 
     const form = document.getElementById("form-booking");
-    form.addEventListener("submit", async (form) => {
-      form.preventDefault();
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const formElements = event.target.elements;
+      // console.log((formElements.id).value);
 
       const formData = {
-        id: form.id.value,
-        user_name: form.user_name.value,
-        user_email: form.user_email.value,
-        No_hp: form.No_hp.value,
-        booking_date: form.booking_date.value,
+        id: formElements.id.value,
+        user_name: formElements.user_name.value,
+        user_email: formElements.user_email.value,
+        No_hp: formElements.No_hp.value,
+        booking_date: formElements.booking_date.value,
       };
 
       try {

@@ -123,11 +123,9 @@ main {
 
 /* New Spot Section */
 .main-content__new-spot {
-  background: linear-gradient(
-    180deg,
-    rgba(53, 173, 240, 0.17) 0%,
-    rgba(72, 156, 203, 0.17) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(53, 173, 240, 0.17) 0%,
+      rgba(72, 156, 203, 0.17) 100%);
   padding: 10px;
   height: 100%;
 }
@@ -769,6 +767,10 @@ p {
   cursor: pointer;
   font-size: 16px;
   color: #7cafe7;
+}
+
+.form-response {
+  color: #f1f1f1 !important;
 }
 
 /* untuk halaman admin */
