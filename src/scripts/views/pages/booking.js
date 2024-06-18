@@ -42,16 +42,15 @@ const tentangKita = {
     }
 
     const form = document.getElementById("form-booking");
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
+    form.addEventListener("submit", async (form) => {
+      form.preventDefault();
 
-      // Use event.target to refer to the form
       const formData = {
-        id: event.target.id.value,               // Change 'form' to 'event.target'
-        user_name: event.target.user_name.value,
-        user_email: event.target.user_email.value,
-        No_hp: event.target.No_hp.value,
-        booking_date: event.target.booking_date.value,
+        id: form.id.value,
+        user_name: form.user_name.value,
+        user_email: form.user_email.value,
+        No_hp: form.No_hp.value,
+        booking_date: form.booking_date.value,
       };
 
       try {
@@ -66,7 +65,7 @@ const tentangKita = {
         const result = await response.json();
 
         if (response.ok) {
-          event.target.reset();  // Reset the form using event.target
+          form.reset();
           document.getElementById("form-response").innerText = result.message;
         } else {
           document.getElementById("form-response").innerText = result.error || "An error occurred. Please try again.";

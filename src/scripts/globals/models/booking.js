@@ -12,10 +12,10 @@ const bookings = sequelize.define(
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      // references: {
-      //   model: 'destinations', // Assumes 'places' table exists
-      //   key: 'id'
-      // }
+      references: {
+        model: 'destinations', // Assumes 'places' table exists
+        key: 'id'
+      }
     },
     user_name: {
       type: DataTypes.STRING,
@@ -29,10 +29,8 @@ const bookings = sequelize.define(
       },
     },
     No_hp: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
+      type: DataTypes.BIGINT,
       allowNull: false,
-      field: "No_hp",
     },
     booking_date: {
       type: DataTypes.DATE,
