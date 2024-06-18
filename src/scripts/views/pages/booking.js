@@ -39,7 +39,7 @@ const tentangKita = {
             <button type="button" class="signup-btn">Cancel</button>
           </div>
         </form>
-        <div id="form-response"  style="color:#f1f1f1;"></div>
+        <div id="form-response" style="color:#f1f1f1;"></div>
       </div>
     </section>
     `;

@@ -38,6 +38,10 @@ const bookings = sequelize.define(
       allowNull: false,
       field: "booking_date",
     },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },
   {
     timestamps: false, // Disable Sequelize's built-in timestamp fields
